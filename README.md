@@ -50,7 +50,7 @@ Using sql, we are able to perform an analysis for HP for two major categories 1.
 
 There are 7 major roles that will need to filled. This relates to over seventy thousand employees (72458).
 
-![Unique_Titles.png](unique_titles.png)
+![Unique_Titles.png](/unique_titles.png)
 
 -- Are there enough qualified, retirement-ready employees in the departments to mentor the next generation of Pewlett Hackard employees?
 
