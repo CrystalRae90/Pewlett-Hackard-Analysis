@@ -4,7 +4,9 @@
 The purpose of this analysis was to be able to deliver concise data to HP Team regarding retirement by title as well mentorship elegibility. This was to be achieved by merging and looking at mutiple datasets. 
 
 ## Results
-Using sql, we are able to perform an analysis for HP for two major categories 1.) Number of Retiring Employees Per title and 2.) Employees that are eligibile for the mentorship program 
+Using sql, we are able to perform an analysis for HP for two major categories 1.) Number of Retiring Employees Per title and 2.) Employees that are eligibile for the mentorship program. 
+
+In order to do a full analysis, we completed 4 different steps. 
 
  -- As the titles of the employees and the employee data was listed in two seperate tables, we first had to merge the tables to grab one cohesive list. Once merged we are able to filter to the approprriate retirement dates and sort appropriately. 
 
@@ -14,6 +16,9 @@ Using sql, we are able to perform an analysis for HP for two major categories 1.
         INNER JOIN titles ti ON em.emp_no = ti.emp_no
         WHERE (em.birth_date BETWEEN '1952-01-01' AND '1955-12-31')
         ORDER BY em.emp_no
+        
+This provided a cohesive list of all titles/roles that each retirement eligbilbe person had held since the start of their time at HP      
+    
 
 -- As the previous list shows all titles each person held, it was needed to then be to show their current titles. Using the previous data, we filtered by all current titles and ensureded that each employee only had one distinct row. 
 
@@ -22,6 +27,8 @@ Using sql, we are able to perform an analysis for HP for two major categories 1.
         FROM retirement_titles rt
         WHERE to_date = '9999-01-01'
         ORDER BY emp_no, to_date DESC;
+        
+ This provided a list of all retirement ready employees in their current roles. 
 
 -- Last step was to provide a cohesive list by job title of how many retiring employees they had. Using the previous table (unique titles), we are able to count the titles listed and group them by the title itself.  This provided a list of the titles pertaining to retiring employees and the corresponding count. 
 
@@ -43,7 +50,6 @@ Using sql, we are able to perform an analysis for HP for two major categories 1.
         ORDER BY em.emp_no 
 
 
-
 ## Summary 
 
 -- How many roles will need to be filled as the "silver tsunami" begins to make an impact?
@@ -54,7 +60,7 @@ There are 7 major roles that will need to filled. This relates to over seventy t
 
 -- Are there enough qualified, retirement-ready employees in the departments to mentor the next generation of Pewlett Hackard employees?
 
-Looking solely at the sheer volume of retirement-ready employees, one would say yes, but you would need more details in order to come to a better consensus. 
+Looking solely at the sheer volume of retirement-ready employees, one would say yes, but you would need more details in order to come to a better conclusion. There are most likely not enough in each department to match up with those in mentorship. 
 
 -- Additional Queries 
 
